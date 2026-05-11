@@ -1,0 +1,343 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;700&display=swap');
+
+:root {
+  --navy: #1a2e5a;
+  --navy-light: #2d4a8a;
+  --blue: #2563ab;
+  --blue-light: #3b82c4;
+  --accent: #c0392b;
+  --accent-light: #e74c3c;
+  --teal: #0e6e6e;
+  --teal-light: #1a9a9a;
+  --gray-50: #f8f9fa;
+  --gray-100: #f1f3f5;
+  --gray-200: #e9ecef;
+  --gray-400: #adb5bd;
+  --gray-600: #6c757d;
+  --gray-800: #343a40;
+  --text: #1a1a2e;
+  --text-secondary: #4a5568;
+  --border: #dee2e6;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  color: var(--text);
+  background: #f5f6f8;
+  line-height: 1.75;
+}
+
+/* ─── Header ─── */
+.site-header {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 60%, var(--blue) 100%);
+  color: white;
+  padding: 3rem 2rem 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.site-header::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 280px; height: 280px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.05);
+}
+.site-header::after {
+  content: '';
+  position: absolute;
+  bottom: -40px; left: -40px;
+  width: 200px; height: 200px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.04);
+}
+.header-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+}
+.header-badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 20px;
+  padding: 4px 14px;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  margin-bottom: 1rem;
+  color: rgba(255,255,255,0.9);
+}
+.site-header h1 {
+  font-family: 'Noto Serif JP', serif;
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  font-weight: 700;
+  line-height: 1.35;
+  margin-bottom: 0.75rem;
+}
+.site-header .subtitle {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 1.5rem;
+}
+.header-meta {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.meta-item {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.8);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.meta-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.5);
+  display: inline-block;
+}
+
+/* ─── Nav ─── */
+.sticky-nav {
+  background: white;
+  border-bottom: 2px solid var(--navy);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.nav-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.nav-inner::-webkit-scrollbar { display: none; }
+.nav-tab {
+  padding: 0.9rem 1.2rem;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--gray-600);
+  text-decoration: none;
+  white-space: nowrap;
+  border-bottom: 3px solid transparent;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.nav-tab:hover { color: var(--navy); border-bottom-color: var(--navy-light); }
+.nav-tab.active { color: var(--navy); border-bottom-color: var(--navy); }
+
+/* ─── Main layout ─── */
+.main-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem;
+}
+
+/* ─── Section ─── */
+.chapter-section {
+  margin-bottom: 3rem;
+}
+.chapter-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--border);
+}
+.chapter-badge {
+  background: var(--navy);
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 4px;
+  white-space: nowrap;
+  letter-spacing: 0.05em;
+}
+.chapter-badge.ch2 { background: #2d6a8c; }
+.chapter-badge.ch3 { background: #1a7a5a; }
+.chapter-badge.ch4 { background: #7a4a1a; }
+.chapter-badge.ch5 { background: #6a1a6a; }
+.chapter-badge.ch6 { background: #1a5a7a; }
+.chapter-badge.ch7 { background: var(--accent); }
+.chapter-badge.ch8 { background: #3a6a1a; }
+.chapter-badge.app  { background: var(--gray-600); }
+.chapter-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+/* ─── Cards grid ─── */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.1rem 1.25rem;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.card:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  transform: translateY(-2px);
+}
+.card-tag {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 0.4rem;
+}
+.card-tag.exam { color: var(--teal); }
+.card-tag.surgery { color: var(--accent); }
+.card h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+.card p {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+.card ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 0.5rem;
+}
+.card li {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  padding: 2px 0;
+  padding-left: 1.1em;
+  position: relative;
+}
+.card li::before {
+  content: '›';
+  position: absolute;
+  left: 0;
+  color: var(--blue);
+  font-weight: 700;
+}
+
+/* ─── Symptom flow table ─── */
+.symptom-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  margin-bottom: 1rem;
+}
+.symptom-table th {
+  background: var(--navy);
+  color: white;
+  padding: 10px 14px;
+  text-align: left;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+}
+.symptom-table td {
+  padding: 9px 14px;
+  border-bottom: 1px solid var(--gray-100);
+  vertical-align: top;
+  color: var(--text-secondary);
+}
+.symptom-table tr:last-child td { border-bottom: none; }
+.symptom-table tr:nth-child(even) td { background: var(--gray-50); }
+.symptom-name {
+  font-weight: 700;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+/* ─── Alert / info boxes ─── */
+.info-box {
+  background: #e8f4fd;
+  border-left: 4px solid var(--blue);
+  border-radius: 0 8px 8px 0;
+  padding: 0.9rem 1.1rem;
+  margin-bottom: 1rem;
+  font-size: 0.84rem;
+}
+.info-box strong { color: var(--navy); }
+.warn-box {
+  background: #fef3cd;
+  border-left: 4px solid #f59e0b;
+  border-radius: 0 8px 8px 0;
+  padding: 0.9rem 1.1rem;
+  margin-bottom: 1rem;
+  font-size: 0.84rem;
+}
+
+/* ─── Sub-section label ─── */
+.sub-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: white;
+  padding: 3px 12px;
+  border-radius: 4px;
+  margin-bottom: 0.75rem;
+  margin-top: 0.25rem;
+}
+.sub-label.exam-label     { background: var(--teal); }
+.sub-label.disease-label  { background: var(--blue); }
+.sub-label.surgery-label  { background: var(--accent); }
+.sub-label.other-label    { background: var(--gray-600); }
+
+/* ─── Tag pills ─── */
+.tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 0.5rem; }
+.tag {
+  background: var(--gray-100);
+  color: var(--gray-600);
+  font-size: 11px;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-weight: 500;
+}
+
+/* ─── Footer ─── */
+.site-footer {
+  background: var(--navy);
+  color: rgba(255,255,255,0.6);
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 0.78rem;
+  margin-top: 3rem;
+}
+.site-footer a { color: rgba(255,255,255,0.8); }
+
+/* ─── Responsive ─── */
+@media (max-width: 600px) {
+  .cards-grid { grid-template-columns: 1fr; }
+  .site-header { padding: 2rem 1.25rem; }
+  .chapter-title { font-size: 1.1rem; }
+}
+
+/* ─── Scroll margin for anchors ─── */
+[id] { scroll-margin-top: 56px; }
