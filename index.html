@@ -1,0 +1,1711 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>耳鼻咽喉科・頭頸部外科 処方マニュアル</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0d2b45;
+    --teal: #1a7a8a;
+    --teal-light: #2a9db0;
+    --sky: #e8f6fa;
+    --sky-mid: #c2e8f0;
+    --accent: #e05c3a;
+    --gold: #c9934a;
+    --text: #1a2533;
+    --muted: #5a6a78;
+    --border: #cde4ea;
+    --white: #ffffff;
+    --bg: #f5f9fb;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  /* ─── HEADER ─── */
+  header {
+    background: linear-gradient(135deg, var(--navy) 0%, #1a4560 60%, var(--teal) 100%);
+    color: white;
+    padding: 48px 40px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 320px; height: 320px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.04);
+  }
+  header::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: 30%;
+    width: 240px; height: 240px;
+    border-radius: 50%;
+    background: rgba(42,157,176,0.15);
+  }
+  .header-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
+  .header-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: #b8e8f0;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    padding: 4px 14px;
+    border-radius: 20px;
+    margin-bottom: 14px;
+    font-weight: 500;
+  }
+  header h1 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(26px, 4vw, 40px);
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 6px;
+    letter-spacing: 0.02em;
+  }
+  header h1 span { color: #7dd4e0; }
+  .header-sub {
+    font-size: 13px;
+    color: rgba(255,255,255,0.65);
+    margin-top: 12px;
+    letter-spacing: 0.05em;
+  }
+  .header-stats {
+    display: flex;
+    gap: 28px;
+    margin-top: 28px;
+    flex-wrap: wrap;
+  }
+  .stat {
+    text-align: center;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 10px;
+    padding: 12px 20px;
+    min-width: 90px;
+  }
+  .stat-n {
+    font-size: 26px;
+    font-weight: 700;
+    color: #7dd4e0;
+    line-height: 1;
+  }
+  .stat-l { font-size: 11px; color: rgba(255,255,255,0.6); margin-top: 4px; }
+
+  /* ─── SEARCH & NAV ─── */
+  .nav-bar {
+    background: var(--white);
+    border-bottom: 2px solid var(--sky-mid);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(13,43,69,0.08);
+  }
+  .nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .search-box {
+    display: flex;
+    align-items: center;
+    background: var(--sky);
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    padding: 7px 14px;
+    gap: 8px;
+    flex: 1;
+    min-width: 200px;
+    transition: border-color 0.2s;
+  }
+  .search-box:focus-within { border-color: var(--teal-light); }
+  .search-box svg { color: var(--muted); flex-shrink: 0; }
+  .search-box input {
+    border: none;
+    background: transparent;
+    font-family: inherit;
+    font-size: 14px;
+    color: var(--text);
+    outline: none;
+    width: 100%;
+  }
+  .filter-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+  .filter-tag {
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    border: 1.5px solid var(--border);
+    background: white;
+    color: var(--muted);
+    transition: all 0.18s;
+    white-space: nowrap;
+    user-select: none;
+  }
+  .filter-tag:hover, .filter-tag.active {
+    background: var(--teal);
+    border-color: var(--teal);
+    color: white;
+  }
+
+  /* ─── MAIN LAYOUT ─── */
+  .layout {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 32px 20px 60px;
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 28px;
+    align-items: start;
+  }
+
+  /* ─── SIDEBAR ─── */
+  .sidebar {
+    position: sticky;
+    top: 70px;
+  }
+  .toc-box {
+    background: white;
+    border: 1.5px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 2px 16px rgba(13,43,69,0.06);
+  }
+  .toc-head {
+    background: var(--navy);
+    color: white;
+    padding: 14px 18px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .toc-list { list-style: none; }
+  .toc-item a {
+    display: flex;
+    align-items: center;
+    padding: 9px 16px;
+    font-size: 12.5px;
+    color: var(--text);
+    text-decoration: none;
+    gap: 8px;
+    border-bottom: 1px solid #f0f5f7;
+    transition: background 0.15s;
+  }
+  .toc-item a:hover { background: var(--sky); color: var(--teal); }
+  .toc-item a .num {
+    min-width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--sky-mid);
+    color: var(--teal);
+    font-size: 11px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  /* ─── CONTENT ─── */
+  .content { min-width: 0; }
+  .section-card {
+    background: white;
+    border: 1.5px solid var(--border);
+    border-radius: 16px;
+    margin-bottom: 28px;
+    overflow: hidden;
+    box-shadow: 0 2px 16px rgba(13,43,69,0.05);
+    transition: box-shadow 0.2s;
+  }
+  .section-card:hover { box-shadow: 0 4px 24px rgba(13,43,69,0.1); }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 18px 24px;
+    background: linear-gradient(90deg, var(--navy) 0%, #1e4a68 100%);
+    cursor: pointer;
+    user-select: none;
+  }
+  .section-num {
+    background: rgba(255,255,255,0.15);
+    color: #7dd4e0;
+    border: 1px solid rgba(255,255,255,0.2);
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .section-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: white;
+    letter-spacing: 0.02em;
+    flex: 1;
+  }
+  .section-count {
+    font-size: 11px;
+    color: rgba(255,255,255,0.5);
+    white-space: nowrap;
+  }
+  .chevron {
+    color: rgba(255,255,255,0.6);
+    transition: transform 0.25s;
+    flex-shrink: 0;
+  }
+  .section-card.collapsed .chevron { transform: rotate(-90deg); }
+  .section-body { padding: 6px 0; }
+  .section-card.collapsed .section-body { display: none; }
+
+  /* ─── DISEASE ITEM ─── */
+  .disease-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0;
+    padding: 14px 24px;
+    border-bottom: 1px solid #f2f7f9;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  .disease-item:last-child { border-bottom: none; }
+  .disease-item:hover { background: #f8fcfd; }
+  .disease-item.open { background: var(--sky); }
+
+  .disease-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 16px;
+    margin-right: 14px;
+    margin-top: 2px;
+  }
+  .disease-main { flex: 1; min-width: 0; }
+  .disease-name {
+    font-size: 14.5px;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.35;
+  }
+  .disease-sub {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 3px;
+  }
+  .disease-page {
+    font-size: 11px;
+    color: var(--muted);
+    white-space: nowrap;
+    padding-left: 12px;
+    margin-top: 4px;
+    flex-shrink: 0;
+  }
+  .disease-chevron {
+    color: var(--muted);
+    margin-left: 8px;
+    transition: transform 0.2s;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .disease-item.open .disease-chevron { transform: rotate(90deg); }
+
+  /* ─── DETAIL PANEL ─── */
+  .detail-panel {
+    display: none;
+    padding: 0 24px 20px 74px;
+    background: var(--sky);
+    border-bottom: 1px solid var(--sky-mid);
+    animation: slideDown 0.2s ease;
+  }
+  .detail-panel.open { display: block; }
+  @keyframes slideDown { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+
+  .detail-inner {
+    background: white;
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 22px;
+    margin-top: 4px;
+  }
+
+  .detail-section-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--teal);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .detail-section-title:first-child { margin-top: 0; }
+  .detail-section-title::before {
+    content: '';
+    display: block;
+    width: 3px;
+    height: 14px;
+    background: var(--teal);
+    border-radius: 2px;
+  }
+
+  .detail-text {
+    font-size: 13.5px;
+    color: var(--text);
+    line-height: 1.75;
+  }
+
+  .rx-box {
+    background: linear-gradient(135deg, #f0fbfd 0%, #e4f4f8 100%);
+    border: 1.5px solid var(--sky-mid);
+    border-left: 4px solid var(--teal);
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 13px;
+    line-height: 1.9;
+    color: var(--text);
+    margin: 8px 0;
+  }
+  .rx-box .rx-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--teal);
+    letter-spacing: 0.1em;
+    margin-bottom: 6px;
+  }
+  .rx-drug { font-weight: 700; color: var(--navy); }
+  .rx-dose { color: var(--muted); font-size: 12.5px; }
+
+  .note-box {
+    background: #fff8f3;
+    border: 1.5px solid #f3d4b8;
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 13px;
+    color: #7a4520;
+    line-height: 1.7;
+    margin-top: 8px;
+    display: flex;
+    gap: 8px;
+  }
+  .note-icon { flex-shrink: 0; font-size: 15px; margin-top: 1px; }
+
+  .tag-list { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; }
+  .tag {
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-weight: 500;
+  }
+  .tag-drug { background: #e8f4fd; color: #1a6090; border: 1px solid #b8daf2; }
+  .tag-warn { background: #fef3e8; color: #a05520; border: 1px solid #f0c898; }
+  .tag-note { background: #edf8ee; color: #2a6830; border: 1px solid #b0dab2; }
+
+  /* ─── INTRO CARD ─── */
+  .intro-card {
+    background: white;
+    border: 1.5px solid var(--border);
+    border-radius: 16px;
+    padding: 24px 28px;
+    margin-bottom: 28px;
+    box-shadow: 0 2px 16px rgba(13,43,69,0.05);
+  }
+  .intro-card h2 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 16px;
+    color: var(--navy);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .intro-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 14px;
+    margin-top: 16px;
+  }
+  .drug-category {
+    background: var(--sky);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 16px;
+  }
+  .drug-category h4 {
+    font-size: 12.5px;
+    font-weight: 700;
+    color: var(--teal);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .drug-category ul {
+    list-style: none;
+    font-size: 12.5px;
+    color: var(--text);
+    line-height: 1.8;
+  }
+  .drug-category ul li::before { content: '・'; color: var(--teal); }
+
+  /* ─── NO RESULTS ─── */
+  .no-results {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--muted);
+    font-size: 15px;
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 768px) {
+    .layout { grid-template-columns: 1fr; }
+    .sidebar { position: static; }
+    header { padding: 32px 20px 28px; }
+    .detail-panel { padding-left: 24px; }
+    .header-stats { gap: 14px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <div class="header-badge">耳鼻咽喉科・頭頸部外科 ／ 2023年増刊号 Vol.95 No.5</div>
+    <h1>処方マニュアル<br><span>豊富な処方例でポイント解説</span></h1>
+    <div class="header-sub">耳鼻咽喉科医のための実践的処方ガイド ／ 専門医による疾患別処方解説</div>
+    <div class="header-stats">
+      <div class="stat"><div class="stat-n">16</div><div class="stat-l">大章</div></div>
+      <div class="stat"><div class="stat-n">80+</div><div class="stat-l">疾患</div></div>
+      <div class="stat"><div class="stat-n">366</div><div class="stat-l">ページ</div></div>
+      <div class="stat"><div class="stat-n">100+</div><div class="stat-l">執筆医師</div></div>
+    </div>
+  </div>
+</header>
+
+<!-- NAV / SEARCH -->
+<div class="nav-bar">
+  <div class="nav-inner">
+    <div class="search-box">
+      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+      <input id="searchInput" type="text" placeholder="疾患名・薬剤名で検索…">
+    </div>
+    <div class="filter-tags">
+      <div class="filter-tag active" data-filter="all">すべて</div>
+      <div class="filter-tag" data-filter="ear">耳</div>
+      <div class="filter-tag" data-filter="nose">鼻</div>
+      <div class="filter-tag" data-filter="throat">咽喉</div>
+      <div class="filter-tag" data-filter="cancer">腫瘍</div>
+      <div class="filter-tag" data-filter="drug">薬剤</div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="toc-box">
+      <div class="toc-head">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/>
+          <line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/>
+          <line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/>
+        </svg>
+        目次
+      </div>
+      <ul class="toc-list" id="tocList">
+        <li class="toc-item"><a href="#sec1"><span class="num">1</span>主な薬剤の種類と使い方</a></li>
+        <li class="toc-item"><a href="#sec2"><span class="num">2</span>併用薬への対処法</a></li>
+        <li class="toc-item"><a href="#sec3"><span class="num">3</span>耳の感染症／炎症</a></li>
+        <li class="toc-item"><a href="#sec4"><span class="num">4</span>鼻副鼻腔の感染症／炎症</a></li>
+        <li class="toc-item"><a href="#sec5"><span class="num">5</span>口腔・咽喉頭の感染症</a></li>
+        <li class="toc-item"><a href="#sec6"><span class="num">6</span>唾液腺の感染症／炎症</a></li>
+        <li class="toc-item"><a href="#sec7"><span class="num">7</span>甲状腺の感染症／炎症</a></li>
+        <li class="toc-item"><a href="#sec8"><span class="num">8</span>頸部の感染症／炎症</a></li>
+        <li class="toc-item"><a href="#sec9"><span class="num">9</span>上気道感染症</a></li>
+        <li class="toc-item"><a href="#sec10"><span class="num">10</span>性感染症</a></li>
+        <li class="toc-item"><a href="#sec11"><span class="num">11</span>アレルギー性疾患</a></li>
+        <li class="toc-item"><a href="#sec12"><span class="num">12</span>全身性自己免疫疾患</a></li>
+        <li class="toc-item"><a href="#sec13"><span class="num">13</span>難聴・めまい</a></li>
+        <li class="toc-item"><a href="#sec14"><span class="num">14</span>痛み・異常感</a></li>
+        <li class="toc-item"><a href="#sec15"><span class="num">15</span>頭頸部がん</a></li>
+        <li class="toc-item"><a href="#sec16"><span class="num">16</span>がん治療の副作用・疼痛緩和</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <!-- CONTENT -->
+  <main class="content" id="mainContent">
+
+    <!-- 概要カード -->
+    <div class="intro-card" data-category="drug">
+      <h2>
+        <svg width="18" height="18" fill="none" stroke="var(--teal)" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+        </svg>
+        本書について
+      </h2>
+      <p class="detail-text">
+        本書は耳鼻咽喉科・頭頸部外科の専門医が、日常診療で遭遇する主要疾患の処方を疾患別・薬剤別に解説した実践的マニュアルです。
+        抗菌薬・ステロイド・漢方薬など薬剤の基本から、80以上の疾患別処方例まで、豊富な処方例をもとにポイントを解説しています。
+      </p>
+      <div class="intro-grid">
+        <div class="drug-category">
+          <h4>💊 抗菌・抗炎症薬</h4>
+          <ul>
+            <li>抗菌薬・抗真菌薬・抗ウイルス薬</li>
+            <li>消炎・消炎鎮痛薬（NSAIDs）</li>
+            <li>副腎皮質ステロイド</li>
+            <li>外用薬（点耳・点鼻・含嗽）</li>
+          </ul>
+        </div>
+        <div class="drug-category">
+          <h4>🌿 特殊薬剤</h4>
+          <ul>
+            <li>アレルギー治療薬</li>
+            <li>漢方薬</li>
+            <li>向精神薬</li>
+            <li>免疫抑制薬</li>
+          </ul>
+        </div>
+        <div class="drug-category">
+          <h4>⚠️ 併用薬管理</h4>
+          <ul>
+            <li>抗凝固薬・抗血小板薬</li>
+            <li>糖尿病薬（周術期）</li>
+            <li>免疫抑制薬</li>
+            <li>各種相互作用</li>
+          </ul>
+        </div>
+        <div class="drug-category">
+          <h4>🎯 処方のポイント</h4>
+          <ul>
+            <li>第一選択薬・代替薬の提示</li>
+            <li>用量・用法の具体的記載</li>
+            <li>小児・妊婦への注意事項</li>
+            <li>耐性菌対策</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEC 1: 主な薬剤の種類と使い方 -->
+    <div class="section-card" id="sec1" data-category="drug">
+      <div class="section-header" onclick="toggleSection(this)">
+        <div class="section-num">1</div>
+        <div class="section-title">耳鼻咽喉科医が処方する主な薬剤の種類と使い方</div>
+        <div class="section-count">6項目</div>
+        <svg class="chevron" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="section-body">
+
+        <div class="disease-item" onclick="toggleDisease(this)" data-tags="抗菌薬 抗真菌薬 抗ウイルス薬">
+          <div class="disease-icon" style="background:#e8f4fd; color:#1a6090;">💊</div>
+          <div class="disease-main">
+            <div class="disease-name">抗菌薬・抗真菌薬・抗ウイルス薬の種類と使い方</div>
+            <div class="disease-sub">河野正充／保富宗城</div>
+          </div>
+          <div class="disease-page">p.8</div>
+          <svg class="disease-chevron" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+        </div>
+        <div class="detail-panel">
+          <div class="detail-inner">
+            <div class="detail-section-title">概要</div>
+            <div class="detail-text">耳鼻咽喉科で頻用される抗菌薬・抗真菌薬・抗ウイルス薬の特徴と使い分けを解説。β-ラクタム系、マクロライド系、キノロン系など各系統の特性と適応疾患を整理。</div>
+            <div class="detail-section-title">主要な薬剤カテゴリ</div>
+            <div class="rx-box">
+              <div class="rx-label">● 経口抗菌薬（主要系統）</div>
+              <span class="rx-drug">アモキシシリン（AMPC）</span>：ペニシリン系。急性中耳炎・急性副鼻腔炎の第一選択<br>
+              <span class="rx-drug">アジスロマイシン（AZM）</span>：マクロライド系。少量長期療法にも応用<br>
+              <span class="rx-drug">レボフロキサシン（LVFX）</span>：ニューキノロン系。耐性菌・重症感染に<br>
+              <span class="rx-drug">セフジトレンピボキシル</span>：第3世代セフェム系。小児にも使用可
+            </div>
+            <div class="detail-section-title">抗ウイルス薬</div>
+            <div class="rx-box">
+              <span class="rx-drug">バラシクロビル（VACV）</span>：HSV・VZV感染。Bell麻痺・Hunt症候群<br>
+              <span class="rx-drug">オセルタミビル（TamiFlu）</span>：インフルエンザ。発症48時間以内<br>
+              <span class="rx-drug">ニルマトレルビル/リトナビル（Paxlovid）</span>：COVID-19重症化予防
+            </div>
+            <div class="tag-list">
+              <span class="tag tag-warn">⚠ 耐性菌に注意</span>
+              <span class="tag tag-note">✓ 培養・感受性検査を活用</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="disease-item" onclick="toggleDisease(this)" data-tags="消炎 NSAIDs 鎮痛薬">
+          <div class="disease-icon" style="background:#fef3e8; color:#a05520;">🔥</div>
+          <div class="disease-main">
+            <div class="disease-name">消炎・消炎鎮痛薬の種類と使い方</div>
+            <div class="disease-sub">今井貴夫</div>
+          </div>
+          <div class="disease-page">p.13</div>
+          <svg class="disease-chevron" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+        </div>
+        <div class="detail-panel">
+          <div class="detail-inner">
+            <div class="detail-section-title">概要</div>
+            <div class="detail-text">NSAIDs・アセトアミノフェンを中心に、耳鼻咽喉科での消炎鎮痛薬の使い方を解説。消炎酵素薬（セラペプターゼ等）も含む。</div>
+            <div class="detail-section-title">主要薬剤と使い分け</div>
+            <div class="rx-box">
+              <div class="rx-label">● 経口NSAIDs</div>
+              <span class="rx-drug">ロキソプロフェン（ロキソニン®）</span> 60mg 3錠分3<br>
+              <span class="rx-drug">セレコキシブ（セレコックス®）</span>：COX-2選択的。消化管への影響が少ない<br>
+              <span class="rx-drug">アセトアミノフェン（カロナール®）</span> 500mg 3錠分3：腎機能低下・高齢者に推奨
+            </div>
+            <div class="rx-box">
+              <div class="rx-label">● 消炎酵素薬</div>
+              <span class="rx-drug">セラペプターゼ（ダーゼン®）</span> 10mg 3錠分3：浮腫・分泌物の軽減<br>
+              <span class="rx-drug">ブロメライン（ブロメラインAP®）</span>：類似効果
+            </div>
+            <div class="note-box">
+              <span class="note-icon">⚠️</span>
+              <span>腎機能障害患者・高齢者ではNSAIDsの長期使用を避け、アセトアミノフェンを優先。消化性潰瘍リスクがある場合はPPIを併用。</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="disease-item" onclick="toggleDisease(this)" data-tags="ステロイド アレルギー">
+          <div class="disease-icon" style="background:#edf8ee; color:#2a6830;">💉</div>
+          <div class="disease-main">
+            <div class="disease-name">副腎皮質ステロイド・アレルギー治療薬の種類と使い方</div>
+            <div class="disease-sub">岡野光博／金井健吾／岡愛子</div>
+          </div>
+          <div class="disease-page">p.18</div>
+          <svg class="disease-chevron" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+        </div>
+        <div class="detail-panel">
+          <div class="detail-inner">
+            <div class="detail-section-title">ステロイドの基本</div>
+            <div class="detail-text">全身投与と局所投与の特性を整理。生物学的半減期（18〜36時間）に合わせた薬剤選択が重要。連日投与・隔日投与法の使い分けも解説。</div>
+            <div class="detail-section-title">主要ステロイド薬</div>
+            <div class="rx-box">
+              <span class="rx-drug">プレドニゾロン（PSL）</span>：汎用される経口ステロイド。1mg錠・5mg錠<br>
+              <span class="rx-drug">デキサメタゾン</span>：強力。脳浮腫・重症アレルギーに<br>
+              <span class="rx-drug">フルチカゾン点鼻薬（フルナーゼ®）</span>：アレルギー性鼻炎の局所療法<br>
+              <span class="rx-drug">デポ・メドロール®注</span>：関節内・局所注射用
+            </div>
+            <div class="detail-section-title">アレルギー治療薬</div>
+            <div class="rx-box">
+              <span class="rx-drug">第2世代抗ヒスタミン薬</span>：フェキソフェナジン、セチリジン、ビラスチン等<br>
+              <span class="rx-drug">抗ロイコトリエン薬</span>：モンテルカスト。鼻閉改善に有効<br>
+              <span class="rx-drug">生物学的製剤</span>：デュピルマブ（難治性副鼻腔炎）、オマリズマブ（重症アレルギー）
+            </div>
+            <div class="note-box">
+              <span class="note-icon">⚠️</span>
+              <span>副作用（高血糖・感染・骨粗鬆症・消化性潰瘍）に注意。長期大量投与では隔日投与法を検討。</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="disease-item" onclick="toggleDisease(this)" data-tags="漢方薬">
+          <div class="disease-icon" style="background:#f0fbfd; color:#1a7a8a;">🌿</div>
+          <div class="disease-main">
+            <div class="disease-name">漢方薬の種類と使い方</div>
+            <div class="disease-sub">陣内賢／田中耕一郎</div>
+          </div>
+          <div class="disease-page">p.24</div>
+          <svg class="disease-chevron" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+        </div>
+        <div class="detail-panel">
+          <div class="detail-inner">
+            <div class="detail-section-title">耳鼻咽喉科で頻用される漢方薬</div>
+            <div class="rx-box">
+              <span class="rx-drug">葛根湯加川芎辛夷（かっこんとうかせんきゅうしんい）</span>：急性鼻副鼻腔炎、鼻閉<br>
+              <span class="rx-drug">小柴胡湯（しょうさいことう）</span>：慢性扁桃炎、反復性扁桃炎の予防<br>
+              <span class="rx-drug">補中益気湯（ほちゅうえっきとう）</span>：慢性疾患・体力低下・術後回復<br>
+              <span class="rx-drug">当帰芍薬散（とうきしゃくやくさん）</span>：メニエール病、めまい<br>
+              <span class="rx-drug">苓桂朮甘湯（りょうけいじゅつかんとう）</span>：立ちくらみ・起立性めまい
+            </div>
+            <div class="note-box">
+              <span class="note-icon">📝</span>
+              <span>証（体質・病態）に合わせた選薬が原則。間質性肺炎（小柴胡湯等）に注意。肝機能への影響を定期モニタリング。</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="disease-item" onclick="toggleDisease(this)" data-tags="外用薬 点耳 点鼻">
+          <div class="disease-icon" style="background:#f8f0fb; color:#6a3080;">🧴</div>
+          <div class="disease-main">
+            <div class="disease-name">外用薬の種類と使い方</div>
+            <div class="disease-sub">松原篤</div>
+          </div>
+          <div class="disease-page">p.29</div>
+          <svg class="disease-chevron" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+        </div>
+        <div class="detail-panel">
+          <div class="detail-inner">
+            <div class="detail-section-title">点耳薬</div>
+            <div class="rx-box">
+              <span class="rx-drug">オフロキサシン点耳液（タリビッド耳科用液®）</span>：外耳炎・慢性中耳炎<br>
+              <span class="rx-drug">デキサメタゾン含有製剤</span>：外耳道炎の炎症軽減
+            </div>
+            <div class="detail-section-title">点鼻薬・含嗽薬</div>
+            <div class="rx-box">
+              <span class="rx-drug">ステロイド点鼻薬</span>：フルチカゾン、モメタゾン。アレルギー性鼻炎<br>
+              <span class="rx-drug">血管収縮薬（ナファゾリン等）</span>：短期使用のみ（薬剤性鼻炎に注意）<br>
+              <span class="rx-drug">アズレンスルホン酸Na含嗽薬</span>：咽頭・口内炎の含嗽
+            </div>
+          </div>
+        </div>
+
+        <div class="disease-item" onclick="toggleDisease(this)" data-tags="向精神薬 睡眠薬 抗不安薬">
+          <div class="disease-icon" style="background:#f5f5f5; color:#555;">🧠</div>
+          <div class="disease-main">
+            <div class="disease-name">向精神薬の種類と使い方</div>
+            <div class="disease-sub">清水謙祐</div>
+          </div>
+          <div class="disease-page">p.33</div>
+          <svg class="disease-chevron" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+        </div>
+        <div class="detail-panel">
+          <div class="detail-inner">
+            <div class="detail-section-title">耳鼻咽喉科での向精神薬の位置付け</div>
+            <div class="detail-text">めまい・耳鳴・難聴などに伴う不安・不眠・抑うつに対する薬物療法。精神科との連携が重要。</div>
+            <div class="rx-box">
+              <span class="rx-drug">抗不安薬（ベンゾジアゼピン系）</span>：アルプラゾラム、エチゾラム。短期間使用<br>
+              <span class="rx-drug">SSRI</span>：フルボキサミン、パロキセチン。抑うつ・パニック症<br>
+              <span class="rx-drug">睡眠薬</span>：スボレキサント（ベルソムラ®）。依存性が少ない<br>
+              <span class="rx-drug">抗めまい薬としての向精神薬</span>：ジアゼパムの点滴静注（急性期めまい）
+            </div>
+            <div class="note-box">
+              <span class="note-icon">⚠️</span>
+              <span>ベンゾジアゼピン系は依存性・転倒リスクに注意。高齢者には慎重投与。長期投与は避け、精神科紹介を検討。</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- SEC 2: 併用薬 -->
+    <div class="section-card" id="sec2" data-category="drug">
+      <div class="section-header" onclick="toggleSection(this)">
+        <div class="section-num">2</div>
+        <div class="section-title">併用薬への対処法</div>
+        <div class="section-count">3項目</div>
+        <svg class="chevron" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="section-body">
+
+        <div class="disease-item" onclick="toggleDisease(this)" data-tags="抗凝固薬 抗血小板薬 ワーファリン">
+          <div class="disease-icon" style="background:#fde8e8; color:#901a1a;">🩸</div>
+          <div class="disease-main">
+            <div class="disease-name">抗凝固薬／抗血小板薬</div>
+            <div class="disease-sub">松浦元／深谷英平</div>
+          </div>
+          <div class="disease-page">p.44</div>
+          <svg class="disease-chevron" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+        </div>
+        <div class="detail-panel">
+          <div class="detail-inner">
+            <div class="detail-section-title">手術・処置前の対応方針</div>
+            <div class="detail-text">抗凝固・抗血小板薬服用中の患者に耳鼻咽喉科処置を行う際の休薬・継続の判断基準を解説。処方科との連携が必須。</div>
+            <div class="rx-box">
+              <div class="rx-label">● 各薬剤の休薬期間の目安</div>
+              <span class="rx-drug">ワルファリン（ワーファリン®）</span>：PT-INRを1.5以下に。通常5日前休薬<br>
+              <span class="rx-drug">DOAC（アピキサバン、リバーロキサバン等）</span>：24〜48時間前休薬<br>
+              <span class="rx-drug">アスピリン</span>：7日前休薬（低用量継続の場合も多い）<br>
+              <span class="rx-drug">クロピドグレル（プラビックス®）</span>：5〜7日前休薬
+            </div>
+            <div class="note-box">
+              <span class="note-icon">⚠️</span>
+              <span>ステント留置後など休薬困難な場合は処方科・麻酔科と協議。抜歯・生検などの小手術では継続投与で対応できる場合も。</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="disease-item" onclick="toggleDisease(this)" data-tags="糖尿病薬 インスリン 周術期">
+          <div class="disease-icon" style="background:#fef9e8; color:#806a20;">🍬</div>
+          <div class="disease-main">
+            <div class="disease-name">糖尿病薬</div>
+            <div class="disease-sub">大野隆行／高橋紘／西村理明</div>
+          </div>
+          <div class="disease-page">p.48</div>
+          <svg class="disease-chevron" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+        </div>
+        <div class="detail-panel">
+          <div class="detail-inner">
+            <div class="detail-section-title">周術期の糖尿病薬管理</div>
+            <div class="rx-box">
+              <span class="rx-drug">メトホルミン</span>：手術前日から休薬（造影剤使用時も）<br>
+              <span class="rx-drug">SGLT2阻害薬</span>：手術3日前から中止（ケトアシドーシスリスク）<br>
+              <span class="rx-drug">SU薬</span>：低血糖リスク。絶食時は減量/中止<br>
+              <span class="rx-drug">DPP-4阻害薬・GLP-1受容体作動薬</span>：低血糖リスクは低いが術前後は要検討<br>
+              <span class="rx-drug">インスリン</span>：絶食中は通常量の半量程度に減量
+            </div>
+          </div>
+        </div>
+
+        <div class="disease-item" onclick="toggleDisease(this)" data-tags="免疫抑制薬 プレドニゾロン">
+          <div class="disease-icon" style="background:#edf8ee; color:#2a6830;">🛡️</div>
+          <div class="disease-main">
+            <div class="disease-name">免疫抑制薬</div>
+            <div class="disease-sub">池口亮太郎／清水優子</div>
+          </div>
+          <div class="disease-page">p.52</div>
+          <svg class="disease-chevron" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+        </div>
+        <div class="detail-panel">
+          <div class="detail-inner">
+            <div class="detail-section-title">周術期・感染症時の注意点</div>
+            <div class="rx-box">
+              <span class="rx-drug">タクロリムス（プログラフ®）</span>：血中濃度モニタリング必須<br>
+              <span class="rx-drug">ミコフェノール酸モフェチル（セルセプト®）</span>：感染リスク↑<br>
+              <span class="rx-drug">メトトレキサート（MTX）</span>：手術前後に休薬を検討<br>
+              <span class="rx-drug">生物学的製剤</span>：感染症リスクに注意。感染活動期は中止
+            </div>
+            <div class="note-box">
+              <span class="note-icon">📝</span>
+              <span>移植・膠原病・難治性疾患で免疫抑制薬を使用している患者では、耳鼻咽喉科感染症が重篤化しやすい。必ず処方科と連携。</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEC 3: 耳の感染症 -->
+    <div class="section-card" id="sec3" data-category="ear">
+      <div class="section-header" onclick="toggleSection(this)">
+        <div class="section-num">3</div>
+        <div class="section-title">耳の感染症／炎症</div>
+        <div class="section-count">8疾患</div>
+        <svg class="chevron" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="section-body">
+
+        <div class="disease-item" onclick="toggleDisease(this)" data-tags="外耳道炎 湿疹 外耳">
+          <div class="disease-icon" style="background:#e8f4fd; color:#1a6090;">👂</div>
+          <div class="disease-main">
+            <div class="disease-name">《外耳》外耳道炎・湿疹</div>
+            <div class="disease-sub">山田浩之</div>
+          </div>
+          <div class="disease-page">p.58</div>
+          <svg class="disease-chevron" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+        </div>
+        <div class="detail-panel">
+          <div class="detail-inner">
+            <div class="detail-section-title">概要</div>
+            <div class="detail-text">外耳道炎は細菌性（緑膿菌・黄色ブドウ球菌が多い）と真菌性（カンジダ・アスペルギルス）に大別。湿疹は接触性・アトピー性などが原因。</div>
+            <div class="detail-section-title">処方例（細菌性外耳道炎）</div>
+            <div class="rx-box">
+              <div class="rx-label">● 第一選択</div>
+              <span class="rx-drug">オフロキサシン点耳液（タリビッド耳科用液® 0.3%）</span><br>
+              <span class="rx-dose">1回6〜10滴 1日2回 点耳 7〜10日</span>
+            </div>
+            <div class="rx-box">
+              <div class="rx-label">● 炎症・疼痛が強い場合</div>
+              <span class="rx-drug">ロキソプロフェン（ロキソニン® 60mg）</span> 3錠分3 食後<br>
+              <span class="rx-drug">デキサメタゾン含有点耳薬</span>：炎症軽減
+            </div>
+            <div class="note-box">
+              <span class="note-icon">📝</span>
+              <span>耳掃除による外傷が誘因となることが多い。治療中は耳を水に濡らさないよう指導。耳掃除を控えさせる。</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="disease-item" onclick="toggleDisease(this)" data-tags="外耳道真菌症 カンジダ アスペルギルス">
+          <div class="disease-icon" style="background:#e8f4fd; color:#1a6090;">🦠</div>
+          <div class="disease-main">
+            <div class="disease-name">《外耳》外耳道真菌症</div>
+            <div class="disease-sub">田渕経司</div>
+          </div>
+          <div class="disease-page">p.61</div>
+          <svg class="disease-chevron" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+        </div>
+        <div class="detail-panel">
+          <div class="detail-inner">
+            <div class="detail-section-title">処方例</div>
+            <div class="rx-box">
+              <span class="rx-drug">イトラコナゾール（イトリゾール®）経口</span> 100mg 2カプセル分2 食後 2週間<br>
+              <span class="rx-drug">ルリコナゾール（ルリコン®）軟膏</span>：外耳道への局所塗布<br>
+              <span class="rx-drug">ミコナゾール（フロリードゲル®）</span>：カンジダに有効
+            </div>
+            <div class="note-box">
+              <span class="note-icon">📝</span>
+              <span>外耳道の清掃（デブリードマン）が治療の基本。イトラコナゾールはCYP3A4阻害があるため他剤との相互作用に注意。</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="disease-item" onclick="toggleDisease(this)" data-tags="急性中耳炎 乳様突起炎 中耳">
+          <div class="disease-icon" style="background:#e8f4fd; color:#1a6090;">👂</div>
+          <div class="disease-main">
+            <div class="disease-name">《中耳》急性中耳炎／急性乳様突起炎</div>
+            <div class="disease-sub">渡部高久</div>
+          </div>
+          <div class="disease-page">p.66</div>
+          <svg class="disease-chevron" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+        </div>
+        <div class="detail-panel">
+          <div class="detail-inner">
+            <div class="detail-section-title">処方例（成人・軽症〜中等症）</div>
+            <div class="rx-box">
+              <div class="rx-label">● 第一選択（ガイドライン準拠）</div>
+              <span class="rx-drug">アモキシシリン（AMPC）250mg</span> 3錠分3 食後 5〜7日<br>
+              <span class="rx-drug">ロキソプロフェン 60mg</span> 適宜追加（疼痛時）
+            </div>
+            <div class="rx-box">
+              <div class="rx-label">● ペニシリンアレルギー時</div>
+              <span class="rx-drug">アジスロマイシン（ジスロマック® 250mg）</span> 2錠分1 食後 3日
+            </div>
+            <div class="rx-box">
+              <div class="rx-label">● 重症・耐性菌疑い</div>
+              <span class="rx-drug">アモキシシリン・クラブラン酸（オーグメンチン®）</span> 2錠分2<br>
+              <span class="rx-drug">レボフロキサシン（クラビット® 500mg）</span> 1錠分1（成人）
+            </div>
+            <div class="note-box">
+              <span class="note-icon">📝</span>
+              <span>小児は体重別用量に注意（アモキシシリン 40〜90mg/kg/日）。反復例・耐性菌例では培養・感受性検査を行う。</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="disease-item" onclick="toggleDisease(this)" data-tags="滲出性中耳炎 中耳">
+          <div class="disease-icon" style="background:#e8f4fd; color:#1a6090;">💧</div>
+          <div class="disease-main">
+            <div class="disease-name">《中耳》滲出性中耳炎</div>
+            <div class="disease-sub">笹野恭之／小森学</div>
+          </div>
+          <div class="disease-page">p.73</div>
+          <svg class="disease-chevron" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+        </div>
+        <div class="detail-panel">
+          <div class="detail-inner">
+            <div class="detail-section-title">処方例</div>
+            <div class="rx-box">
+              <span class="rx-drug">少量マクロライド療法</span>（クラリスロマイシン 200mg 1錠分1 2〜3ヶ月）：副鼻腔炎合併例<br>
+              <span class="rx-drug">カルボシステイン（ムコダイン®）500mg</span> 3錠分3：粘膜線毛機能改善<br>
+              <span class="rx-drug">モメタゾン点鼻薬（ナゾネックス®）</span>：アレルギー性鼻炎合併例
+            </div>
+          </div>
+        </div>
+
+        <div class="disease-item" onclick="toggleDisease(this)" data-tags="Bell麻痺 ハント症候群 顔面神経麻痺">
+          <div class="disease-icon" style="background:#fde8e8; color:#901a1a;">😐</div>
+          <div class="disease-main">
+            <div class="disease-name">《中耳》Bell麻痺／ハント症候群</div>
+            <div class="disease-sub">和佐野浩一郎</div>
+          </div>
+          <div class="disease-page">p.85</div>
+          <svg class="disease-chevron" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+        </div>
+        <div class="detail-panel">
+          <div class="detail-inner">
+            <div class="detail-section-title">処方例（発症早期・72時間以内が有効）</div>
+            <div class="rx-box">
+              <div class="rx-label">● Bell麻痺（HSV再活性化）</div>
+              <span class="rx-drug">プレドニゾロン（PSL）</span> 60mg 12錠分2 5日間→漸減<br>
+              <span class="rx-drug">バラシクロビル（バルトレックス® 500mg）</span> 6錠分3 7日間
+            </div>
+            <div class="rx-box">
+              <div class="rx-label">● ハント症候群（VZV再活性化）</div>
+              <span class="rx-drug">プレドニゾロン（PSL）</span> 60mg 12錠分2 5日間→漸減<br>
+              <span class="rx-drug">バラシクロビル（バルトレックス® 500mg）</span> 6錠分3 7〜10日間
+            </div>
+            <div class="note-box">
+              <span class="note-icon">⚠️</span>
+              <span>早期治療（発症72時間以内）が予後を改善。ステロイドは血糖・血圧への影響に注意。ハント症候群はBell麻痺より予後不良。</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEC 4: 鼻副鼻腔 -->
+    <div class="section-card" id="sec4" data-category="nose">
+      <div class="section-header" onclick="toggleSection(this)">
+        <div class="section-num">4</div>
+        <div class="section-title">鼻副鼻腔の感染症／炎症</div>
+        <div class="section-count">4疾患</div>
+        <svg class="chevron" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="section-body">
+
+        <div class="disease-item" onclick="toggleDisease(this)" data-tags="急性鼻副鼻腔炎 副鼻腔炎 鼻">
+          <div class="disease-icon" style="background:#f0fbfd; color:#1a7a8a;">👃</div>
+          <div class="disease-main">
+            <div class="disease-name">急性鼻副鼻腔炎</div>
+            <div class="disease-sub">堀口茂俊</div>
+          </div>
+          <div class="disease-page">p.90</div>
+          <svg class="disease-chevron" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+        </div>
+        <div class="detail-panel">
+          <div class="detail-inner">
+            <div class="detail-section-title">処方例</div>
+            <div class="rx-box">
+              <div class="rx-label">● 細菌性（発症10日以上・重症）</div>
+              <span class="rx-drug">アモキシシリン（AMPC 250mg）</span> 3錠分3 食後 7〜10日<br>
+              <span class="rx-drug">カルボシステイン（ムコダイン® 500mg）</span> 3錠分3 食後
+            </div>
+            <div class="rx-box">
+              <div class="rx-label">● 症状緩和</div>
+              <span class="rx-drug">キシロメタゾリン点鼻液（ナファゾリン類）</span>：3日以内<br>
+              <span class="rx-drug">葛根湯加川芎辛夷（漢方）</span>：初期・軽症に
+            </div>
+            <div class="note-box">
+              <span class="note-icon">📝</span>
+              <span>ウイルス性（発症10日未満）には抗菌薬不要。改善なければ培養・感受性検査。血管収縮薬の連日使用は7日まで。</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="disease-item" onclick="toggleDisease(this)" data-tags="慢性鼻副鼻腔炎 マクロライド">
+          <div class="disease-icon" style="background:#f0fbfd; color:#1a7a8a;">👃</div>
+          <div class="disease-main">
+            <div class="disease-name">慢性鼻副鼻腔炎</div>
+            <div class="disease-sub">松根彰志</div>
+          </div>
+          <div class="disease-page">p.94</div>
+          <svg class="disease-chevron" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+        </div>
+        <div class="detail-panel">
+          <div class="detail-inner">
+            <div class="detail-section-title">処方例（少量長期マクロライド療法）</div>
+            <div class="rx-box">
+              <span class="rx-drug">クラリスロマイシン（クラリス® 200mg）</span> 1錠分1 食後 3〜6ヶ月<br>
+              <span class="rx-drug">カルボシステイン（ムコダイン® 500mg）</span> 3錠分3 食後<br>
+              <span class="rx-drug">フルチカゾン点鼻薬（フルナーゼ®）</span> 各鼻腔2噴霧/日
+            </div>
+            <div class="tag-list">
+              <span class="tag tag-note">✓ 少量マクロライドは抗炎症作用が主目的</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="disease-item" onclick="toggleDisease(this)" data-tags="好酸球性副鼻腔炎 生物学的製剤 デュピルマブ">
+          <div class="disease-icon" style="background:#f0fbfd; color:#1a7a8a;">🔬</div>
+          <div class="disease-main">
+            <div class="disease-name">好酸球性副鼻腔炎</div>
+            <div class="disease-sub">竹野幸夫／川住知弘／石川知慧</div>
+          </div>
+          <div class="disease-page">p.99</div>
+          <svg class="disease-chevron" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+        </div>
+        <div class="detail-panel">
+          <div class="detail-inner">
+            <div class="detail-section-title">処方例</div>
+            <div class="rx-box">
+              <div class="rx-label">● 術後維持療法</div>
+              <span class="rx-drug">モメタゾン点鼻薬（ナゾネックス®）</span> 各鼻腔2噴霧 1日2回<br>
+              <span class="rx-drug">経口ステロイド短期追加</span>：増悪時にPSL 20〜30mg/日 漸減
+            </div>
+            <div class="rx-box">
+              <div class="rx-label">● 難治例・生物学的製剤</div>
+              <span class="rx-drug">デュピルマブ（デュピクセント® 300mg）</span> 2週毎皮下注<br>
+              <span class="rx-drug">メポリズマブ（ヌーカラ®）</span> 300mg 4週毎皮下注
+            </div>
+            <div class="note-box">
+              <span class="note-icon">📝</span>
+              <span>指定難病（306）。術後再発例・難治例では生物学的製剤が有効。デュピルマブは気管支喘息合併例にも効果的。</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEC 5: 口腔・咽喉頭 -->
+    <div class="section-card" id="sec5" data-category="throat">
+      <div class="section-header" onclick="toggleSection(this)">
+        <div class="section-num">5</div>
+        <div class="section-title">口腔・咽喉頭の感染症／炎症</div>
+        <div class="section-count">5疾患</div>
+        <svg class="chevron" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="section-body">
+
+        <div class="disease-item" onclick="toggleDisease(this)" data-tags="扁桃炎 扁桃周囲膿瘍">
+          <div class="disease-icon" style="background:#fde8e8; color:#901a1a;">🦷</div>
+          <div class="disease-main">
+            <div class="disease-name">扁桃炎／扁桃周囲膿瘍</div>
+            <div class="disease-sub">中島逸男</div>
+          </div>
+          <div class="disease-page">p.113</div>
+          <svg class="disease-chevron" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+        </div>
+        <div class="detail-panel">
+          <div class="detail-inner">
+            <div class="detail-section-title">処方例（細菌性扁桃炎）</div>
+            <div class="rx-box">
+              <div class="rx-label">● 外来治療（軽症〜中等症）</div>
+              <span class="rx-drug">アモキシシリン（AMPC 250mg）</span> 4錠分4 食後 10日<br>
+              <span class="rx-drug">ロキソプロフェン（ロキソニン® 60mg）</span> 適宜<br>
+              <span class="rx-drug">アズレン含嗽薬（アズノール®うがい液）</span> 含嗽 毎食後
+            </div>
+            <div class="rx-box">
+              <div class="rx-label">● 扁桃周囲膿瘍（穿刺・切開後）</div>
+              <span class="rx-drug">スルバクタム・アンピシリン（ユナシン®）</span> 点滴静注 入院管理<br>
+              <span class="rx-drug">クリンダマイシン（ダラシン® C）</span>：ペニシリンアレルギー代替
+            </div>
+          </div>
+        </div>
+
+        <div class="disease-item" onclick="toggleDisease(this)" data-tags="急性喉頭炎 喉頭蓋炎 声門下喉頭炎">
+          <div class="disease-icon" style="background:#fde8e8; color:#901a1a;">🗣️</div>
+          <div class="disease-main">
+            <div class="disease-name">急性喉頭炎／急性喉頭蓋炎／急性声門下喉頭炎</div>
+            <div class="disease-sub">山下勝</div>
+          </div>
+          <div class="disease-page">p.117</div>
+          <svg class="disease-chevron" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+        </div>
+        <div class="detail-panel">
+          <div class="detail-inner">
+            <div class="detail-section-title">急性喉頭蓋炎（気道緊急！）</div>
+            <div class="rx-box">
+              <div class="rx-label">● 入院治療（気道確保優先）</div>
+              <span class="rx-drug">スルバクタム・アンピシリン（ユナシン®）3g</span> 点滴静注 8時間毎<br>
+              <span class="rx-drug">デキサメタゾン 8〜16mg</span> 点滴静注（浮腫軽減）<br>
+              気管切開・挿管の準備を常に
+            </div>
+            <div class="note-box">
+              <span class="note-icon">🚨</span>
+              <span>急性喉頭蓋炎は気道閉塞の危険あり。気道確保・ICU管理を最優先。外来での安易な咽頭診察は呼吸停止を招くことがある。</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEC 9: 上気道感染症 -->
+    <div class="section-card" id="sec9" data-category="throat">
+      <div class="section-header" onclick="toggleSection(this)">
+        <div class="section-num">9</div>
+        <div class="section-title">上気道感染症</div>
+        <div class="section-count">8疾患</div>
+        <svg class="chevron" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="section-body">
+
+        <div class="disease-item" onclick="toggleDisease(this)" data-tags="インフルエンザ 抗ウイルス薬">
+          <div class="disease-icon" style="background:#fef3e8; color:#a05520;">🤧</div>
+          <div class="disease-main">
+            <div class="disease-name">インフルエンザ</div>
+            <div class="disease-sub">濱田洋平／青木洋介</div>
+          </div>
+          <div class="disease-page">p.166</div>
+          <svg class="disease-chevron" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+        </div>
+        <div class="detail-panel">
+          <div class="detail-inner">
+            <div class="detail-section-title">処方例（発症48時間以内）</div>
+            <div class="rx-box">
+              <div class="rx-label">● 経口抗インフルエンザ薬</div>
+              <span class="rx-drug">オセルタミビル（タミフル® 75mg）</span> 2カプセル分2 5日間<br>
+              <span class="rx-drug">バロキサビル（ゾフルーザ® 80mg）</span> 2錠分1 単回（体重≥80kg）
+            </div>
+            <div class="rx-box">
+              <div class="rx-label">● 吸入薬</div>
+              <span class="rx-drug">ザナミビル（リレンザ®）</span> 1回2ブリスター 1日2回 5日間<br>
+              <span class="rx-drug">ラニナミビル（イナビル®）</span> 160mg 単回吸入
+            </div>
+          </div>
+        </div>
+
+        <div class="disease-item" onclick="toggleDisease(this)" data-tags="COVID-19 コロナ 新型コロナ">
+          <div class="disease-icon" style="background:#fde8e8; color:#901a1a;">🦠</div>
+          <div class="disease-main">
+            <div class="disease-name">新型コロナウイルス感染症</div>
+            <div class="disease-sub">木村百合香</div>
+          </div>
+          <div class="disease-page">p.170</div>
+          <svg class="disease-chevron" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+        </div>
+        <div class="detail-panel">
+          <div class="detail-inner">
+            <div class="detail-section-title">処方例（重症化リスクが高い患者）</div>
+            <div class="rx-box">
+              <span class="rx-drug">ニルマトレルビル/リトナビル（パキロビッド®）</span> 各2錠分2 5日間<br>
+              <span class="rx-drug">エンシトレルビル（ゾコーバ®）</span> 初日375mg→以降125mg 5日間<br>
+              <span class="rx-drug">モルヌピラビル（ラゲブリオ®）</span> 800mg分2 5日間
+            </div>
+            <div class="note-box">
+              <span class="note-icon">📝</span>
+              <span>パキロビッドは多くの薬剤と相互作用あり（リトナビルによるCYP阻害）。併用薬の確認が必須。</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEC 11: アレルギー -->
+    <div class="section-card" id="sec11" data-category="nose">
+      <div class="section-header" onclick="toggleSection(this)">
+        <div class="section-num">11</div>
+        <div class="section-title">アレルギー性疾患</div>
+        <div class="section-count">3疾患</div>
+        <svg class="chevron" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="section-body">
+
+        <div class="disease-item" onclick="toggleDisease(this)" data-tags="アレルギー性鼻炎 花粉症 抗ヒスタミン薬">
+          <div class="disease-icon" style="background:#f0fbfd; color:#1a7a8a;">🌸</div>
+          <div class="disease-main">
+            <div class="disease-name">アレルギー性鼻炎</div>
+            <div class="disease-sub">山田武千代</div>
+          </div>
+          <div class="disease-page">p.212</div>
+          <svg class="disease-chevron" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+        </div>
+        <div class="detail-panel">
+          <div class="detail-inner">
+            <div class="detail-section-title">処方例（花粉症・通年性）</div>
+            <div class="rx-box">
+              <div class="rx-label">● 軽症〜中等症（第一選択）</div>
+              <span class="rx-drug">ビラスチン（ビラノア® 20mg）</span> 1錠分1 食前（眠気少ない）<br>
+              <span class="rx-drug">フェキソフェナジン（アレグラ® 60mg）</span> 2錠分2 食後<br>
+              <span class="rx-drug">ルパタジン（ルパフィン® 10mg）</span> 1錠分1
+            </div>
+            <div class="rx-box">
+              <div class="rx-label">● 鼻閉が主体の場合</div>
+              <span class="rx-drug">モンテルカスト（シングレア® 10mg）</span> 1錠分1 就寝前<br>
+              <span class="rx-drug">モメタゾン点鼻薬（ナゾネックス®）</span> 各鼻腔2噴霧/日
+            </div>
+            <div class="rx-box">
+              <div class="rx-label">● 免疫療法（根治的治療）</div>
+              <span class="rx-drug">スギ花粉舌下錠（シダキュア®）</span> 毎日舌下投与 3〜5年<br>
+              <span class="rx-drug">ダニ舌下錠（ミティキュア®）</span> 毎日舌下投与 3〜5年
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEC 13: 難聴・めまい -->
+    <div class="section-card" id="sec13" data-category="ear">
+      <div class="section-header" onclick="toggleSection(this)">
+        <div class="section-num">13</div>
+        <div class="section-title">難聴・めまい</div>
+        <div class="section-count">9疾患</div>
+        <svg class="chevron" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="section-body">
+
+        <div class="disease-item" onclick="toggleDisease(this)" data-tags="突発性難聴 急性感音難聴 ステロイド">
+          <div class="disease-icon" style="background:#e8f4fd; color:#1a6090;">🔊</div>
+          <div class="disease-main">
+            <div class="disease-name">急性感音難聴・突発性難聴</div>
+            <div class="disease-sub">鬼頭良輔／工穰</div>
+          </div>
+          <div class="disease-page">p.246</div>
+          <svg class="disease-chevron" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+        </div>
+        <div class="detail-panel">
+          <div class="detail-inner">
+            <div class="detail-section-title">処方例（早期治療が重要）</div>
+            <div class="rx-box">
+              <div class="rx-label">● 標準的初期治療</div>
+              <span class="rx-drug">プレドニゾロン（PSL）</span> 60mg 12錠分2 5日間→5日毎に半減（3週で終了）<br>
+              <span class="rx-drug">アデノシン三リン酸（ATP製剤：アデホス-Lコーワ®）</span> 内耳循環改善<br>
+              <span class="rx-drug">ビタミンB12製剤（メコバラミン：メチコバール®）</span>
+            </div>
+            <div class="rx-box">
+              <div class="rx-label">● ステロイド鼓室内注入（難治例）</div>
+              <span class="rx-drug">デキサメタゾン（デキサート® 3.3mg/mL）</span> 0.5〜1mL 鼓室内注入<br>
+              週1回 3〜5回
+            </div>
+            <div class="note-box">
+              <span class="note-icon">⚠️</span>
+              <span>発症2週間以内の治療開始が予後を左右する。MRIで後颅窩病変を除外。糖尿病・高血圧患者ではステロイド量に注意。</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="disease-item" onclick="toggleDisease(this)" data-tags="メニエール病 めまい 利尿薬">
+          <div class="disease-icon" style="background:#e8f4fd; color:#1a6090;">🌀</div>
+          <div class="disease-main">
+            <div class="disease-name">メニエール病</div>
+            <div class="disease-sub">将積日出夫</div>
+          </div>
+          <div class="disease-page">p.261</div>
+          <svg class="disease-chevron" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+        </div>
+        <div class="detail-panel">
+          <div class="detail-inner">
+            <div class="detail-section-title">処方例</div>
+            <div class="rx-box">
+              <div class="rx-label">● 発作予防・維持療法</div>
+              <span class="rx-drug">イソソルビド内服液（イソバイド® 70%）</span> 70mL 分3 食後（浸透圧利尿）<br>
+              <span class="rx-drug">ベタヒスチンメシル酸塩（メリスロン® 12mg）</span> 3錠分3
+            </div>
+            <div class="rx-box">
+              <div class="rx-label">● 急性発作期</div>
+              <span class="rx-drug">ジアゼパム（セルシン® 10mg）</span> 静脈注射<br>
+              <span class="rx-drug">ジフェニドール（セファドール® 25mg）</span> 3錠分3
+            </div>
+          </div>
+        </div>
+
+        <div class="disease-item" onclick="toggleDisease(this)" data-tags="BPPV 良性発作性頭位めまい症">
+          <div class="disease-icon" style="background:#e8f4fd; color:#1a6090;">🔄</div>
+          <div class="disease-main">
+            <div class="disease-name">良性発作性頭位めまい症（BPPV）</div>
+            <div class="disease-sub">藤本千里</div>
+          </div>
+          <div class="disease-page">p.258</div>
+          <svg class="disease-chevron" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+        </div>
+        <div class="detail-panel">
+          <div class="detail-inner">
+            <div class="detail-section-title">治療方針</div>
+            <div class="detail-text">BPPVの第一選択は耳石置換法（Epley法・Brandt-Daroff法）。薬物療法は補助的。</div>
+            <div class="rx-box">
+              <span class="rx-drug">ジフェニドール（セファドール® 25mg）</span> 3錠分3：嘔気・嘔吐の対症療法<br>
+              <span class="rx-drug">メトクロプラミド（プリンペラン®）</span>：嘔吐著明時<br>
+              <span class="rx-drug">ジアゼパム（静注）</span>：急性期の強い嘔気
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEC 15: 頭頸部がん -->
+    <div class="section-card" id="sec15" data-category="cancer">
+      <div class="section-header" onclick="toggleSection(this)">
+        <div class="section-num">15</div>
+        <div class="section-title">頭頸部がん</div>
+        <div class="section-count">6疾患</div>
+        <svg class="chevron" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="section-body">
+
+        <div class="disease-item" onclick="toggleDisease(this)" data-tags="中咽頭がん 喉頭がん 頭頸部がん 化学療法">
+          <div class="disease-icon" style="background:#fde8e8; color:#901a1a;">🎗️</div>
+          <div class="disease-main">
+            <div class="disease-name">中咽頭がん</div>
+            <div class="disease-sub">山村晃司／齊藤祐毅</div>
+          </div>
+          <div class="disease-page">p.301</div>
+          <svg class="disease-chevron" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+        </div>
+        <div class="detail-panel">
+          <div class="detail-inner">
+            <div class="detail-section-title">治療概要・支持療法</div>
+            <div class="detail-text">中咽頭がんはHPV関連と非HPV関連で予後・治療反応性が異なる。放射線治療+化学療法（CCRT）が主体。</div>
+            <div class="rx-box">
+              <div class="rx-label">● 同時化学放射線療法（CCRT）支持療法</div>
+              <span class="rx-drug">シスプラチン（CDDP）100mg/m²</span> 3週毎 放射線照射と同時投与<br>
+              <span class="rx-drug">グラニセトロン（カイトリル® 3mg）</span> 点滴前制吐<br>
+              <span class="rx-drug">デキサメタゾン 16mg</span> 制吐補助
+            </div>
+            <div class="rx-box">
+              <div class="rx-label">● 口腔粘膜炎の管理</div>
+              <span class="rx-drug">アズレン含嗽（毎食後）＋生理食塩水含嗽</span><br>
+              <span class="rx-drug">トラマドール（トラマール®）</span>：疼痛管理
+            </div>
+          </div>
+        </div>
+
+        <div class="disease-item" onclick="toggleDisease(this)" data-tags="甲状腺がん 甲状腺ホルモン">
+          <div class="disease-icon" style="background:#fde8e8; color:#901a1a;">🦋</div>
+          <div class="disease-main">
+            <div class="disease-name">甲状腺がん</div>
+            <div class="disease-sub">森谷季吉</div>
+          </div>
+          <div class="disease-page">p.312</div>
+          <svg class="disease-chevron" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+        </div>
+        <div class="detail-panel">
+          <div class="detail-inner">
+            <div class="detail-section-title">術後治療</div>
+            <div class="rx-box">
+              <div class="rx-label">● 甲状腺全摘後のホルモン補充・TSH抑制療法</div>
+              <span class="rx-drug">レボチロキシン（チラーヂンS® 50µg）</span> 適宜増量 空腹時服用<br>
+              目標：TSH 0.1mU/L未満（高リスク例）
+            </div>
+            <div class="rx-box">
+              <div class="rx-label">● 放射性ヨウ素（131I）内照射療法後</div>
+              継続的TSH抑制療法・定期的TG測定によるモニタリング
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEC 16: がん治療副作用 -->
+    <div class="section-card" id="sec16" data-category="cancer">
+      <div class="section-header" onclick="toggleSection(this)">
+        <div class="section-num">16</div>
+        <div class="section-title">がん治療の副作用・疼痛緩和</div>
+        <div class="section-count">9項目</div>
+        <svg class="chevron" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="section-body">
+
+        <div class="disease-item" onclick="toggleDisease(this)" data-tags="疼痛緩和 オピオイド 緩和ケア">
+          <div class="disease-icon" style="background:#f8f0fb; color:#6a3080;">💊</div>
+          <div class="disease-main">
+            <div class="disease-name">疼痛緩和</div>
+            <div class="disease-sub">瓜生英興／内龍太郎／中島寅彦</div>
+          </div>
+          <div class="disease-page">p.354</div>
+          <svg class="disease-chevron" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+        </div>
+        <div class="detail-panel">
+          <div class="detail-inner">
+            <div class="detail-section-title">WHO三段階除痛ラダーに基づく処方</div>
+            <div class="rx-box">
+              <div class="rx-label">● 第1段階（軽度疼痛）</div>
+              <span class="rx-drug">アセトアミノフェン（カロナール® 500mg）</span> 4錠分4<br>
+              <span class="rx-drug">NSAIDs（ロキソプロフェン等）</span>
+            </div>
+            <div class="rx-box">
+              <div class="rx-label">● 第2段階（中等度疼痛）</div>
+              <span class="rx-drug">トラマドール（トラマール® 25mg）</span> 4〜8錠分2〜4<br>
+              <span class="rx-drug">コデインリン酸塩</span>
+            </div>
+            <div class="rx-box">
+              <div class="rx-label">● 第3段階（強度疼痛）</div>
+              <span class="rx-drug">モルヒネ徐放錠（MSコンチン®）</span> 開始量10〜30mg分2 適宜増量<br>
+              <span class="rx-drug">オキシコドン（オキシコンチン®）</span>、<span class="rx-drug">フェンタニル貼付剤</span>：経口不能時
+            </div>
+            <div class="note-box">
+              <span class="note-icon">📝</span>
+              <span>オピオイド開始時は必ず緩下剤を併用（酸化マグネシウム等）。悪心には制吐薬を。呼吸抑制に対しナロキソンを準備。</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="disease-item" onclick="toggleDisease(this)" data-tags="皮膚障害 抗EGFR 間質性肺炎">
+          <div class="disease-icon" style="background:#fef3e8; color:#a05520;">⚗️</div>
+          <div class="disease-main">
+            <div class="disease-name">抗EGFR抗体薬による皮膚障害</div>
+            <div class="disease-sub">藤山幹子</div>
+          </div>
+          <div class="disease-page">p.343</div>
+          <svg class="disease-chevron" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 129 6"/></svg>
+        </div>
+        <div class="detail-panel">
+          <div class="detail-inner">
+            <div class="detail-section-title">ざ瘡様皮疹・皮膚乾燥への対応</div>
+            <div class="rx-box">
+              <span class="rx-drug">ミノサイクリン（ミノマイシン® 100mg）</span> 1〜2錠分1〜2 予防・治療<br>
+              <span class="rx-drug">ヘパリン類似物質（ヒルドイド®）</span>：皮膚乾燥への保湿<br>
+              <span class="rx-drug">クリンダマイシン外用（ダラシンゲル® 1%）</span>：ざ瘡様皮疹
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 残りの章（折りたたみ） -->
+    <div class="section-card" id="sec6" data-category="throat" style="opacity:0.8">
+      <div class="section-header" onclick="toggleSection(this)" style="background: linear-gradient(90deg, #2a4a62 0%, #2a5a72 100%)">
+        <div class="section-num">6</div>
+        <div class="section-title">唾液腺の感染症／炎症</div>
+        <div class="section-count">5疾患 — p.122〜134</div>
+        <svg class="chevron" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="section-body">
+        <div style="padding:16px 24px; color: var(--muted); font-size:13.5px; line-height:1.8;">
+          急性化膿性唾液腺炎、シェーグレン症候群、IgG4関連疾患、線維素性唾液管炎、木村病（軟部好酸球性肉芽腫症）を収載。
+          シェーグレン症候群では<strong>ピロカルピン（サラジェン®）</strong>の唾液分泌促進効果、IgG4関連疾患では<strong>ステロイド維持療法</strong>（PSL 5〜10mg）のポイントを解説。
+        </div>
+      </div>
+    </div>
+
+    <div class="section-card" id="sec7" data-category="throat" style="opacity:0.8">
+      <div class="section-header" onclick="toggleSection(this)" style="background: linear-gradient(90deg, #2a4a62 0%, #2a5a72 100%)">
+        <div class="section-num">7</div>
+        <div class="section-title">甲状腺の感染症／炎症</div>
+        <div class="section-count">3疾患 — p.138〜146</div>
+        <svg class="chevron" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="section-body">
+        <div style="padding:16px 24px; color: var(--muted); font-size:13.5px; line-height:1.8;">
+          急性化膿性甲状腺炎、亜急性甲状腺炎、慢性甲状腺炎（橋本病）を収載。
+          亜急性甲状腺炎では<strong>NSAIDs・ステロイド（PSL 15〜30mg）</strong>、橋本病では<strong>レボチロキシン補充療法</strong>のポイントを解説。
+        </div>
+      </div>
+    </div>
+
+    <div class="section-card" id="sec8" data-category="throat" style="opacity:0.8">
+      <div class="section-header" onclick="toggleSection(this)" style="background: linear-gradient(90deg, #2a4a62 0%, #2a5a72 100%)">
+        <div class="section-num">8</div>
+        <div class="section-title">頸部の感染症／炎症</div>
+        <div class="section-count">3疾患 — p.150〜156</div>
+        <svg class="chevron" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="section-body">
+        <div style="padding:16px 24px; color: var(--muted); font-size:13.5px; line-height:1.8;">
+          急性リンパ節炎、亜急性壊死性リンパ節炎、深頸部膿瘍を収載。
+          深頸部膿瘍は<strong>気道管理最優先</strong>。CTで病変範囲評価→外科的ドレナージ＋<strong>広域抗菌薬（タゾバクタム/ピペラシリン等）</strong>の静注が基本。
+        </div>
+      </div>
+    </div>
+
+    <div class="section-card" id="sec10" data-category="throat" style="opacity:0.8">
+      <div class="section-header" onclick="toggleSection(this)" style="background: linear-gradient(90deg, #2a4a62 0%, #2a5a72 100%)">
+        <div class="section-num">10</div>
+        <div class="section-title">性感染症</div>
+        <div class="section-count">4疾患 — p.192〜206</div>
+        <svg class="chevron" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="section-body">
+        <div style="padding:16px 24px; color: var(--muted); font-size:13.5px; line-height:1.8;">
+          梅毒、カンジダ症、HIV感染症、咽頭クラミジアを収載。
+          梅毒には<strong>ベンジルペニシリンベンザチン（ステルイズ® 240万単位 単回筋注）</strong>、HIV管理では多剤併用抗レトロウイルス療法（cART）との連携を解説。
+        </div>
+      </div>
+    </div>
+
+    <div class="section-card" id="sec12" data-category="throat" style="opacity:0.8">
+      <div class="section-header" onclick="toggleSection(this)" style="background: linear-gradient(90deg, #2a4a62 0%, #2a5a72 100%)">
+        <div class="section-num">12</div>
+        <div class="section-title">全身性自己免疫疾患</div>
+        <div class="section-count">4疾患 — p.228〜242</div>
+        <svg class="chevron" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="section-body">
+        <div style="padding:16px 24px; color: var(--muted); font-size:13.5px; line-height:1.8;">
+          ベーチェット病、サルコイドーシス、多発血管炎性肉芽腫症（GPA）、好酸球性多発血管炎性肉芽腫症（EGPA）を収載。
+          GPAでは<strong>シクロホスファミド＋ステロイド</strong>、EGPAでは<strong>ベンラリズマブ（ファセンラ®）</strong>などの生物学的製剤の応用を解説。
+        </div>
+      </div>
+    </div>
+
+    <div class="section-card" id="sec14" data-category="ear" style="opacity:0.8">
+      <div class="section-header" onclick="toggleSection(this)" style="background: linear-gradient(90deg, #2a4a62 0%, #2a5a72 100%)">
+        <div class="section-num">14</div>
+        <div class="section-title">痛み・異常感</div>
+        <div class="section-count">5疾患 — p.278〜294</div>
+        <svg class="chevron" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="section-body">
+        <div style="padding:16px 24px; color: var(--muted); font-size:13.5px; line-height:1.8;">
+          嗅覚障害、味覚障害、舌痛症、顎関節症・口腔顔面痛、三叉神経痛・舌咽神経痛を収載。
+          嗅覚障害には<strong>ステロイド点鼻薬＋当帰芍薬散</strong>、三叉神経痛には<strong>カルバマゼピン（テグレトール® 100〜200mg/日 漸増）</strong>の処方ポイントを解説。
+        </div>
+      </div>
+    </div>
+
+    <div id="noResults" class="no-results" style="display:none;">
+      <svg width="48" height="48" fill="none" stroke="#c0ccd4" stroke-width="1.5" viewBox="0 0 24 24" style="margin-bottom:16px">
+        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+      <p>該当する疾患が見つかりませんでした</p>
+    </div>
+
+  </main>
+</div>
+
+<script>
+  // ─── セクションの開閉 ───
+  function toggleSection(header) {
+    const card = header.closest('.section-card');
+    card.classList.toggle('collapsed');
+  }
+
+  // ─── 疾患の開閉 ───
+  function toggleDisease(item) {
+    const panel = item.nextElementSibling;
+    const isOpen = item.classList.contains('open');
+    // 同セクション内の他を閉じる
+    const section = item.closest('.section-body');
+    section.querySelectorAll('.disease-item.open').forEach(d => {
+      d.classList.remove('open');
+      d.nextElementSibling.classList.remove('open');
+    });
+    if (!isOpen) {
+      item.classList.add('open');
+      panel.classList.add('open');
+    }
+  }
+
+  // ─── 検索 ───
+  const searchInput = document.getElementById('searchInput');
+  searchInput.addEventListener('input', filterContent);
+
+  // ─── フィルタタグ ───
+  const filterTags = document.querySelectorAll('.filter-tag');
+  filterTags.forEach(tag => {
+    tag.addEventListener('click', () => {
+      filterTags.forEach(t => t.classList.remove('active'));
+      tag.classList.add('active');
+      filterContent();
+    });
+  });
+
+  function filterContent() {
+    const query = searchInput.value.toLowerCase().trim();
+    const activeFilter = document.querySelector('.filter-tag.active').dataset.filter;
+    
+    const cards = document.querySelectorAll('.section-card, .intro-card');
+    let anyVisible = false;
+
+    cards.forEach(card => {
+      const category = card.dataset.category || '';
+      const text = card.textContent.toLowerCase();
+      const tags = (card.dataset.tags || '').toLowerCase();
+      
+      const matchFilter = activeFilter === 'all' || category === activeFilter;
+      const matchSearch = !query || text.includes(query) || tags.includes(query);
+
+      if (matchFilter && matchSearch) {
+        card.style.display = '';
+        anyVisible = true;
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    document.getElementById('noResults').style.display = anyVisible ? 'none' : 'block';
+  }
+
+  // ─── スムーズスクロール ───
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        // 折りたたみを開く
+        const card = target;
+        if (card.classList.contains('collapsed')) {
+          card.classList.remove('collapsed');
+        }
+      }
+    });
+  });
+</script>
+</body>
+</html>
